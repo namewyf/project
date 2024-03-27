@@ -5,35 +5,45 @@
 	<meta name="viewport" content="width=	, initial-scale=1.0">
 	<title>Document</title>
 	<style type="text/css">	
-		p {
-	  font-family: "helvetica neue", helvetica, sans-serif;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-	  text-align: center;
-	  border: 2px solid rgb(0 0 200 / 0.6);
-	  background: rgb(0 0 200 / 0.6);
-	  color: rgb(255 255 255 / 1);
-	  box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
-	  border-radius: 10px;
-	  padding: 3px 10px;
-	  display: inline-block;
-	  cursor: pointer;
-	}
+		   #countdown {
+     font-size: 24px;
+     color: #333;
+     text-align: center;
+     margin-top: 20px;
+   }
 
 	</style>
 	
 </head>
 <body>
-	<p>Player 1: Chris</p>
+	   <div id="countdown">
+     距离2024年高考还有
+     <p> <span id="days"></span> 天 <span id="hours"></span> 时 <span id="minutes"></span> 分 <span id="seconds"></span> 秒
+   </div></p>
 	<script type="text/javascript">
-		const para = document.querySelector("p");
+		   function updateCountdown() {
+     var now = new Date();
+     var examDate = new Date('2024-06-07'); // 高考的确切日期，格式为年-月-日
+     var timeDiff = examDate - now;
 
-para.addEventListener("click", updateName);
+     var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+     var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+     var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+     var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-function updateName() {
-  const name = prompt("Enter a new name");
-  para.textContent = `Player 1: ${name}`;
-}
+     document.getElementById('days').textContent = days;
+     document.getElementById('hours').textContent = hours;
+     document.getElementById('minutes').textContent = minutes;
+     document.getElementById('seconds').textContent = seconds;
+
+     if (timeDiff < 0) {
+       clearInterval(intervalId);
+       document.getElementById('countdown').innerHTML = '高考已经开始！';
+     }
+   }
+
+   // 更新倒计时每秒
+   var intervalId = setInterval(updateCountdown, 1000);
 
 	</script>
 </body>
