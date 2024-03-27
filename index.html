@@ -65,6 +65,44 @@
     </style>
 </head>
 <body>
-    <!-- 页面内容不变，省略以节省空间 -->
+    <header>
+        <h1>高考学习资料</h1>
+        <div id="countdown"></div>
+    </header>
+    <div class="container">
+        <h2>每日励志</h2>
+        <p id="inspiration">"知识就是力量。" - 弗朗西斯·培根</p>
+        <h2>学习资料</h2>
+        <ul class="resource-list">
+            <li><a href="https://www.example.com/resource1">资源1</a></li>
+            <li><a href="https://www.example.com/resource2">资源2</a></li>
+            <!-- 更多资源... -->
+        </ul>
+    </div>
+    <script>
+        function updateCountdown() {
+            var now = new Date();
+            var examDate = new Date('2024-06-07T00:00:00');
+            var diff = examDate - now;
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = "距离2024年高考还有：" + days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒 ";
+            
+            if (diff < 0) {
+                clearInterval(interval);
+                document.getElementById('countdown').innerHTML = "高考已开始";
+            }
+        }
+
+        // 在页面加载时立即更新倒计时
+        window.onload = updateCountdown;
+
+        // 然后每秒更新一次
+        var interval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
