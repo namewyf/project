@@ -1,50 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=	, initial-scale=1.0">
-	<title>Document</title>
-	<style type="text/css">	
-		   #countdown {
-     font-size: 24px;
-     color: #333;
-     text-align: center;
-     margin-top: 20px;
-   }
-
-	</style>
-	
+    <title>高考学习资料</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        h2 {
+            color: #333;
+        }
+        #inspiration {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .resource-list li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .resource-list li a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-	   <div id="countdown">
-     距离2024年高考还有
-     <p> <span id="days"></span> 天 <span id="hours"></span> 时 <span id="minutes"></span> 分 <span id="seconds"></span> 秒
-   </div></p>
-	<script type="text/javascript">
-		   function updateCountdown() {
-     var now = new Date();
-     var examDate = new Date('2024-06-07'); // 高考的确切日期，格式为年-月-日
-     var timeDiff = examDate - now;
+    <header>
+        <h1>高考学习资料</h1>
+        <div id="countdown"></div>
+    </header>
+    <div class="container">
+        <h2>每日励志</h2>
+        <p id="inspiration">"知识就是力量。" - 弗朗西斯·培根</p>
+        <h2>学习资料</h2>
+        <ul class="resource-list">
+            <li><a href="https://www.example.com/resource1">资源1</a></li>
+            <li><a href="https://www.example.com/resource2">资源2</a></li>
+            <!-- 更多资源... -->
+        </ul>
+    </div>
+    <script>
+        function updateCountdown() {
+            var now = new Date();
+            var examDate = new Date('2024-06-07T00:00:00');
+            var diff = examDate - now;
 
-     var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-     var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-     var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-     var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-     document.getElementById('days').textContent = days;
-     document.getElementById('hours').textContent = hours;
-     document.getElementById('minutes').textContent = minutes;
-     document.getElementById('seconds').textContent = seconds;
+            document.getElementById('countdown').innerHTML = "距离2024年高考还有：" + days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒 ";
+            
+            if (diff < 0) {
+                clearInterval(interval);
+                document.getElementById('countdown').innerHTML = "高考已开始";
+            }
+        }
 
-     if (timeDiff < 0) {
-       clearInterval(intervalId);
-       document.getElementById('countdown').innerHTML = '高考已经开始！';
-     }
-   }
+        // 在页面加载时立即更新倒计时
+        window.onload = updateCountdown;
 
-   // 更新倒计时每秒
-   var intervalId = setInterval(updateCountdown, 1000);
-
-	</script>
+        // 然后每秒更新一次
+        var interval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
