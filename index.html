@@ -12,7 +12,7 @@
             font-size: 16px; /* 设置基本字体大小 */
         }
         header {
-            background-color: #333;
+            background-color: #4193F7;
             color: #fff;
             padding: 10px 0;
             text-align: center;
@@ -38,8 +38,6 @@
         }
         .resource-list li {
             background-color: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
             text-align: center;
             position: relative;
         }
@@ -54,11 +52,11 @@
         }
         .resource-list li a:link,.resource-list li a:visited{
             text-decoration: none;
-            background-color: #F6F6F6;
+            background-color: #FEFEFE;
             
         }
         .resource-list li a:hover{
-            background-color: green;
+            background-color: #F4F9FF;
         }
          img.head{
             height: 30px; /* 设置列表项图片的高度 */
@@ -66,6 +64,19 @@
             position: absolute;
             left: 10px;
             top: 5px;
+        }
+        /* 添加一些基本的样式 */
+        .footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #333; /* 设置链接颜色 */
+            text-decoration: none; /* 去除下划线 */
+        }
+        .footer a:hover {
+            text-decoration: underline; /* 鼠标悬浮时添加下划线 */
         }
         /* 响应式设计：在小屏幕设备上调整样式 */
         @media (max-width: 600px) {
@@ -110,6 +121,9 @@
             <li><a href="https://pan.quark.cn/s/66e2ca6bfc7d"target="_blank"><img src="./bag.png" class="head">【09】地理大合集</a></li>
             <!-- 更多资源... -->
         </ul>
+    </div>
+    <div class="footer">
+        <p>以上资料均来自互联网公开渠道，如有侵权，请及时联系删除：<a href="mailto:example@example.com">shakespeare66@163.com</a></p>
     </div>
     <script>
         function updateCountdown() {
