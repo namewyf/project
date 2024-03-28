@@ -86,17 +86,19 @@
 </head>
 <body>
     <header>
-        <h1>高三党的学习基地</h1>
         <div id="countdown"></div>
     </header>
     <div class="container">
-        <h2>每日励志</h2>
-        <p id="inspiration">"知识就是力量。" - 弗朗西斯·培根</p>
+        <h2>特别鸣谢</h2>
+        <p id="inspiration">学长筱雅、张三、小芋头等笔袋朋友提供的资料</p>
         <h2>学习资料</h2>
         <ul class="resource-list">
             <li><a href="https://pan.baidu.com/s/198otsf1EGfd4Td9mDxiz0A?pwd=1234 "target="_blank"><img src="./bag.png" class="head">24高三网课</a></li>
+            <li><a href="https://pan.baidu.com/s/1Z8OQJtMBnxYvre5fsxsa6Q?pwd=1234 "target="_blank"><img src="./bag.png" class="head">近30年高考真题</a></li>
+            <li><a href="https://pan.baidu.com/s/1XpKL7ad8oA8F8430Ea7pPQ?pwd=1234 "target="_blank"><img src="./bag.png" class="head">高中教材答案</a></li>
             <li><a href="https://pan.quark.cn/s/c0979bee1e7b"target="_blank"><img src="./bag.png" class="head">顶级名校资料</a></li>
             <li><a href="https://pan.quark.cn/s/3656e8392f69"target="_blank"><img src="./bag.png" class="head">作文素材合集</a></li>
+            <li><a href="https://pan.quark.cn/s/6d958e2bae7b"target="_blank"><img src="./bag.png" class="head">志愿填报课程</a></li>
             <li><a href="https://pan.quark.cn/s/4a9c95a83220"target="_blank"><img src="./bag.png" class="head">【01】语文大合集</a></li>
             <li><a href="https://pan.quark.cn/s/c055a307db1e"target="_blank"><img src="./bag.png" class="head">【02】数学大合集</a></li>
             <li><a href="https://pan.quark.cn/s/bd06f203c607"target="_blank"><img src="./bag.png" class="head">【03】英语大合集</a></li>
@@ -120,7 +122,7 @@
             var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerHTML = "距离2024年高考还有：" + days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒 ";
+            document.getElementById('countdown').innerHTML = "距离2024年高考还有：<br>" + days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒 ";
             
             if (diff < 0) {
                 clearInterval(interval);
