@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>高三党的学习基地</title>
+    <title>高三党资料库</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f3f5fc;
             font-size: 16px; /* 设置基本字体大小 */
+        }
+        h1{
+            text-align: center;
         }
         header {
             background-color: #4193F7;
             color: #fff;
             padding: 10px 0;
             text-align: center;
+        }
+        #share{
+            text-align: center;
+            background-color: #f3f5fc;
+        }
+        input{
+            font-size: 16px;
+        }
+        img.share{
+            height: 30px; /* 设置列表项图片的高度 */
+            width: auto; /* 保持图片的宽高比 */
+
+        }
+        button{
+            border: none;
         }
         #countdown {
             font-size: 1.25em; /* 使用em单位使得大小相对于基本字体大小 */
@@ -100,6 +118,11 @@
         <div id="countdown"></div>
     </header>
     <div class="container">
+        <h1>高三党的资料库</h1>
+        <div id="share">
+            <input type="text" value="https://gaosandang.com" id="myInput" readonly>
+            <button onclick="myFunction()"><img src="./share.png" class="share"></button>
+        </div>
         <h2>特别鸣谢</h2>
         <p id="inspiration">学长筱雅、张三、小芋头等笔袋朋友提供的资料</p>
         <h2>学习资料</h2>
@@ -149,6 +172,20 @@
 
         // 然后每秒更新一次
         var interval = setInterval(updateCountdown, 1000);
+        function myFunction() {
+      /* 获取文本字段 */
+      var copyText = document.getElementById("myInput");
+
+      /* 选择文本字段 */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* 对于移动设备 */
+
+      /* 复制文本到剪贴板 */
+      document.execCommand("copy");
+
+      /* 提示已复制 */
+      alert("已复制" + copyText.value + ",快去分享给你的同学吧！");
+    }
     </script>
 </body>
 </html>
