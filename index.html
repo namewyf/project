@@ -170,7 +170,7 @@
     <script>
         function updateCountdown() {
             var now = new Date();
-            var examDate = new Date('2024-06-07T00:00:00');
+            var examDate = new Date('2025-06-07T00:00:00');
             var diff = examDate - now;
 
             var days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -178,7 +178,7 @@
             var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerHTML = "距离2024年高考还有：<br>" + days + "天 ";
+            document.getElementById('countdown').innerHTML = "距离2025年高考还有：<br>" + days + "天 ";
             
             if (diff < 0) {
                 clearInterval(interval);
