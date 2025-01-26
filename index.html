@@ -24,6 +24,10 @@ var _hmt = _hmt || [];
     <title>高三党资料库</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./logo.png">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+    />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -176,6 +180,7 @@ var _hmt = _hmt || [];
             <!-- 更多资源... -->
         </ul>
     </div>
+    <div id="waline"></div>
     <div class="footer">
         <p>以上资料均来自互联网公开渠道，如有侵权，请及时联系删除，如有资料投稿也可通过本邮箱联系：<a href="mailto:shakespeare66@163.com">shakespeare66@163.com</a></p>
     </div>
@@ -217,6 +222,14 @@ var _hmt = _hmt || [];
       /* 提示已复制 */
       alert("已复制" + copyText.value + ",快去分享给你的同学吧！");
     }
+    </script>
+    <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    
+        init({
+          el: '#waline',
+          serverURL: 'https://blog-comments-6ldubh445-namewyfs-projects.vercel.app/',
+        });
     </script>
 </body>
 </html>
